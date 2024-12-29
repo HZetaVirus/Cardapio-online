@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- META TAG OG -->
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Pais e filhos lanches - Os mais saborosos hamburgeres!"/>
+    <meta property="og:image" content="https://projeto-cardapio-wine.vercel.app/assets/hamb-1.png"/>
+    <meta property="og:description" content="Os mais saborosos hamburgeres do bairro!" />
+    <meta property="og:site_name" content="Pais e filhos lanches" /> 
+
+  <link rel="stylesheet" href="./styles/output.css" />  
+
+    <title>Pais e filhos lanches</title>
+    </head>
+    <body>
+    <!-- HEADER -->
+    <header class="w-full h-[420px] bg-zinc-600 bg-home bg-cover bg-center">
+    <div class="w-full h-full flex flex-col justify-center items-center">
+        <img src="./assets/logo/logo.svg" 
+        alt="Logo Pais e Filhos Lanches" 
+        class="w-32 h-32 rounded-full shadow-lg hover:scale-110 duration-200"
+        />
+        <h1 class="text-white text-3xl mt-4 mb-2 font-bold">
+            Pais e Filhos Lanches
+        </h1>
+
+        <span class="text-white font-medium">Rua: Abaúna 147, Barro Vermelho - RJ</span>
+
+        <div class="bg-green-800 hover:bg-green-500 px-4 py-1 rounded-lg mt-6" id="date-span">
+            <span class="text-white font-medium">Ter á Sab - 18:00 às 22:00</span>
+        </div>
+    </div>
+    </header>
+    <!-- FIM HEADER -->
+
+    <h2 class="text-2xl md:text-3xl font-bold text-center mt-9 mb-6">
+    Conheça nosso Cardápio
+    </h2>
+
+    <!-- Menu -->
+ 
+   <div id="menu">
+    
+    <main class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16">
+
+      <!-- PRODUTO ITEM -->
+      <div class="flex gap-2">
+        <img 
+          src="./assets/artesanais/hamb-7.png"
+          alt="Jonny Chorão Burguer"
+          class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
+        />
+
+        <div>
+          <p class="font-bold">Jonny Chorão Burguer</p>
+          <p class="text-sm">Pão brioche, alface, tomate, 
+            carne blend bovino de 200gr, molho cheddar vigor, 
+            2 fatias de queijo cheddar, anéis de cebola, picles apimentado, 
+            maionese artesanal, e uma deliciosa geleia de pimenta.
+          <div class="flex items-center gap-2 justify-between mt-3">
+            <p class="font-bold text-lg">R$ 36.00</p>
+            <button 
+            class="bg-red-500 hover:bg-green-600 px-5 py-2 rounded add-to-cart-btn"
+            data-name="Jonny Chorão Burguer"
+            data-price="14">
+            <i class="fa fa-shopping-bag text-lg text-white"></i>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- FIM PRODUTO ITEM -->
+
+    <!-- PRODUTO ITEM -->
+    <div class="flex gap-4">
+    <img src="./assets/artesanais/bigd.png" 
+    alt="Big Daddy Burguer" 
+    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
+    />
+    <div>
+        <p class="font-bold">Big Daddy Burguer</p>
+        <p class="text-sm">Pão brioche selado na chapa, um suculento blend de 150gr, 
+            cebola caramelizada, queijo cheddar derretido, 
+            bacon, maionese artesanal e barbecue artesanal.
+        </p>
+        <div class="flex items-center gap-2 justify-between mt-3">
+            <p class="font-semibold">R$ 27.00</p>
+            <button 
+            class="bg-red-500 hover:bg-green-600 px-5 py-2 rounded add-to-cart-btn"
+            data-name="Big Daddy Burguer"
+            data-price="27.00">
+                <i class="fa fa-shopping-bag text-lg text-white"></i>
+            </button>
+        </div>
+    </div>
+    </div>
+    <!-- FIM PRODUTO ITEM -->
+
+    <!-- PRODUTO ITEM -->
+    <div class="flex gap-4">
+    <img src="./assets/artesanais/molb.JPG" 
+    alt="Mother Love Burguer" 
+    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
+    />
+    <div>
+        <p class="font-bold">Mother Love Burguer</p>
+        <p class="text-sm">Pão brioche leve e macio selado na chapa, 
+            2 carnes bovina de 60g, picles artesanal, 2 fatias queijo cheddar, 
+            maionese artesanal, fechando com 3 fatias de bacon frito na chapa.
+        </p>
+        <div class="flex items-center gap-2 justify-between mt-3">
+            <p class="font-semibold">R$ 17.00</p>
+            <button 
+            class="bg-red-500 hover:bg-green-600 px-5 py-2 rounded add-to-cart-btn"
+            data-name="Mother Love Burguer"
+            data-price="17.00">
+                <i class="fa fa-shopping-bag text-lg text-white"></i>
+            </button>
+        </div>
+    </div>
+    </div>
+    <!-- FIM PRODUTO ITEM -->
+
+    <!-- PRODUTO ITEM -->
+    <div class="flex gap-4">
+    <img src="./assets/artesanais/litle.JPG" 
+    alt="Little Explorer Burguer" 
+    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
+    />
+    <div>
+        <p class="font-bold">Little Explorer Burguer</p>
+        <p class="text-sm">Pão brioche selado na chapa, um suculento blend de 150gr, 
+            cebola caramelizada, queijo cheddar derretido, 
+            bacon, maionese artesanal e barbecue artesanal.
+        </p>
+        <div class="flex items-center gap-2 justify-between mt-3">
+            <p class="font-semibold">R$ 12.00</p>
+            <button 
+            class="bg-red-500 hover:bg-green-600 px-5 py-2 rounded add-to-cart-btn"
+            data-name="Little Explorer Burguer"
+            data-price="12.00">
+                <i class="fa fa-shopping-bag text-lg text-white"></i>
+            </button>
+        </div>
+    </div>
+    </div>
+    <!-- FIM PRODUTO ITEM -->
+     
+
+        <!-- PRODUTO ITEM -->
+        <div class="flex gap-4">
+        <img src="./assets/tradicionais/tr.png" 
+        alt="Triple Burger" 
+        class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
+        />
+        <div>
+            <p class="font-bold">Triple Burger</p>
+            <p class="text-sm">Pão com gergelim selado na chapa, 
+                salada, maionese, 2 ovos, 3 carnes de 59g cada, 
+                3 fatias deliciosas de queijo cheddar Polenghi, 
+                3 fatias de bacon, finalizando o burguer com 20g de billy & jack.
+            </p>
+            <div class="flex items-center gap-2 justify-between mt-3">
+                <p class="font-semibold">R$ 23</p>
+                <button 
+                class="bg-red-500 hover:bg-green-600 px-5 py-2 rounded add-to-cart-btn"
+                data-name="Triple Burger"
+                data-price="23">
+                    <i class="fa fa-shopping-bag text-lg text-white"></i>
+                </button>
+            </div>
+        </div>
+        </div>
+        <!-- FIM PRODUTO ITEM -->
+
+        <!-- PRODUTO ITEM -->
+        <div class="flex gap-4">
+            <img src="./assets/tradicionais/db.png" 
+            alt="Double Burger" 
+            class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
+            />
+            <div>
+                <p class="font-bold">Double Burger</p>
+                <p class="text-sm">Pão com gergelim selado, salada, ovo frito, 
+                    carne macia, queijo cheddar, bacon, cebola roxa, 
+                    billy & Jack, delicioso molho barbecue.
+                </p>
+                <div class="flex items-center gap-2 justify-between mt-3">
+                    <p class="font-semibold">R$ 18</p>
+                    <button 
+                    class="bg-red-500 hover:bg-green-600 px-5 py-2 rounded add-to-cart-btn"
+                    data-name="Double Burger"
+                    data-price="18">
+                    <i class="fa fa-shopping-bag text-lg text-white"></i>
+                </button>
+            </div>
+        </div>
+        </div>
+        <!-- FIM PRODUTO ITEM -->
+
+        <!-- PRODUTO ITEM -->
+        <div class="flex gap-4">
+            <img src="./assets/tradicionais/xt.png" 
+            alt="X-Treme Burger" 
+            class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
+            />
+            <div>
+                <p class="font-bold">X-Treme Burger</p>
+                <p class="text-sm">Pão com gergelim selado, salada, ovo frito, 
+                    carne macia, queijo cheddar, bacon, cebola roxa, 
+                    billy & Jack, delicioso molho barbecue.
+                </p>
+                <div class="flex items-center gap-2 justify-between mt-3">
+                    <p class="font-semibold">R$ 14</p>
+                    <button 
+                    class="bg-red-500 hover:bg-green-600 px-5 py-2 rounded add-to-cart-btn"
+                    data-name="X-Treme Burger"
+                    data-price="14">
+                    <i class="fa fa-shopping-bag text-lg text-white"></i>
+                </button>
+            </div>
+        </div>
+        </div>
+        <!-- FIM PRODUTO ITEM -->
+
+        <!-- PRODUTO ITEM -->
+    <div class="flex gap-4">
+        <img src="./assets/tradicionais/trad.png" 
+        alt="Tradictional Burguer" 
+        class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
+        />
+        <div>
+            <p class="font-bold">Tradictional Burguer</p>
+            <p class="text-sm">Pão com gergelim, 
+                maionese, salada, 1 carne de 59g, 
+                finalizando com 1 deliciosa fatia de 
+                queijo cheddar polenghi.
+            </p>
+            <div class="flex items-center gap-2 justify-between mt-3">
+                <p class="font-semibold">R$ 8</p>
+                <button 
+                class="bg-red-500 hover:bg-green-600 px-5 py-2 rounded add-to-cart-btn"
+                data-name="Tradictional Burguer"
+                data-price="8">
+                    <i class="fa fa-shopping-bag text-lg text-white"></i>
+                </button>
+            </div>
+        </div>
+        </div>
+        <!-- FIM PRODUTO ITEM -->
+
+    </main>
+
+    <!-- GRID BEBIDAS -->
+    <div class="mx-auto max-w-7xl px-2 my-2" id="menu">
+        <h2 class="font-bold text-3xl">
+            Bebidas
+        </h2>
+    </div>
+        
+    <!-- GRID BEBIDAS -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-14">
+        
+    <!-- BEBIDA ITEM 0 -->
+    <div class="flex gap-4">
+        <img src="./assets/bebidas/Ma.png" 
+        alt="Suco Marácuja 300ml" 
+        class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"/>
+        <div>
+            <p class="font-bold">Suco Marácuja 300ml</p>
+            <p class="text-sm">Extremamente gelado!.
+            </p>
+            <div class="flex items-center gap-2 justify-between mt-3">
+                <p class="font-semibold">R$ 12</p>
+                <button 
+                class="bg-red-500 hover:bg-green-600 px-5 py-2 rounded add-to-cart-btn"
+                data-name="Suco Marácuja 300ml"
+                data-price="12">
+                    <i class="fa fa-shopping-bag text-lg text-white"></i>
+                </button>
+                </div>
+            </div>
+        </div>
+   
+    <!-- FIM BEBIDA ITEM 0 -->
+
+    <!-- BEBIDA ITEM 1 -->
+    <div class="flex gap-4">
+        <img src="./assets/bebidas/Ace.png" 
+        alt="Suco Acerola 300ml" 
+        class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"/>
+        <div>
+            <p class="font-bold">Suco Acerola 300ml</p>
+            <p class="text-sm">Extremamente gelado.
+            </p>
+            <div class="flex items-center gap-2 justify-between mt-3">
+                <p class="font-semibold">R$ 9</p>
+                <button 
+                class="bg-red-500 hover:bg-green-600 px-5 py-2 rounded add-to-cart-btn"
+                data-name="Suco Acerola 300ml"
+                data-price="9">
+                    <i class="fa fa-shopping-bag text-lg text-white"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- FIM BEBIDA ITEM 1 -->
+
+     <!-- BEBIDA ITEM 2 -->
+     <div class="flex gap-4">
+        <img src="./assets/bebidas/coca.png" 
+        alt="Coca-Cola Lata" 
+        class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"/>
+        <div>
+            <p class="font-bold">Coca-Cola Lata</p>
+            <p class="text-sm">Trincando de gelada!.
+            </p>
+            <div class="flex items-center gap-2 justify-between mt-3">
+                <p class="font-semibold">R$ 6</p>
+                <button 
+                class="bg-red-500 hover:bg-green-600 px-5 py-2 rounded add-to-cart-btn"
+                data-name="Coca-Cola Lata"
+                data-price="6">
+                    <i class="fa fa-shopping-bag text-lg text-white"></i>
+                </button>
+                </div>
+            </div>
+        </div>
+    <!-- FIM BEBIDA ITEM 2 -->
+
+     <!-- BEBIDA ITEM 3 -->
+     <div class="flex gap-4">
+        <img src="./assets/bebidas/guaracam.png" 
+        alt="Guaracamp" 
+        class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"/>
+        <div>
+            <p class="font-bold">Guaracamp</p>
+            <p class="text-sm">Extremamente gelado!.
+            </p>
+            <div class="flex items-center gap-2 justify-between mt-3">
+                <p class="font-semibold">R$ 2</p>
+                <button 
+                class="bg-red-500 hover:bg-green-600 px-5 py-2 rounded add-to-cart-btn"
+                data-name="Guaracamp"
+                data-price="2">
+                    <i class="fa fa-shopping-bag text-lg text-white"></i>
+                </button>
+                </div>
+            </div>     
+    </div>
+    <!-- FIM BEBIDA ITEM 3 -->
+
+    <!-- FIM BEBIDAS -->
+ 
+            
+
+        <!-- FIM GRID SOBREMESAS -->
+</div>
+<!-- FIM MENU -->
+
+  <!-- MODAL CART -->
+  <div 
+    class="bg-black/60 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden"
+    id="cart-modal"
+  >
+
+    <div class="bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px]">
+      <h2 class="text-center font-bold text-2xl mb-2">Meu carrinho</h2>
+
+      <div id="cart-items" class="flex justify-between mb-2 flex-col max-h-[400px] overflow-auto"></div>
+
+      <p class="font-bold">Total: <span id="cart-total">0.00</span></p>
+
+      <p class="font-bold mt-4">Endereço de entrega:</p>
+      <input 
+        type="text"
+        placeholder="Digite seu endereço completo..."
+        id="address"
+        class="w-full border-2 p-1 rounded my-1"
+      />
+      <p class="text-red-500 hidden" id="address-warn">Digite seu endereço completo!</p>
+
+      <div class="flex items-center justify-between mt-5 w-full">
+        <button id="close-modal-btn" class="bg-red-500 text-white hover:bg-red-700 px-4 py-1 rounded">Fechar</button>
+        <button id="checkout-btn" class="bg-green-500 hover:bg-green-700 text-white px-4 py-1 rounded">Finalizar pedido</button>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- FIM MODAL CART -->
+
+  <!-- BUTTON CART FOOTER -->
+  <footer class="w-full bg-red-500 hover:bg-green-600 py-3 fixed bottom-0 z-40 flex items-center justify-center">
+    <button 
+      class="flex items-center gap-2 text-white font-bold"
+      id="cart-btn"
+    >
+      (<span id="cart-count">0</span>)
+      Veja meu carrinho
+      <i class="fa fa-shopping-bag text-lg text-white"></i>
+    </button>
+  </footer>
+  <!-- FIM BUTTON CART FOOTER -->
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
