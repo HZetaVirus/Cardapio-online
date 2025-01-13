@@ -21,7 +21,7 @@
     <meta property="og:image" content="https://cardapio-online-ten-zeta.vercel.app/assets/logo/logo.svg"/>
     <meta property="og:description" content="Os mais saborosos hamburgeres do bairro!" />
     <meta property="og:site_name" content="Pais e filhos lanches" /> 
-
+    <link rel="stylesheet" href="./styles/splash.css" />
     <link rel="stylesheet" href="./styles/output.css" />  
 
     <link rel="icon" type="image/x-icon" href="assets/logo/logo.svg" />
@@ -29,6 +29,11 @@
     <title>Pais e filhos lanches</title>
     </head>
     <body>
+
+    <div class="splash">
+        <h1 class="fade-in">Bem vindo ao nosso Delivery!</h1>
+    </div>
+
     <!-- HEADER -->
     <header class="w-full h-[420px] bg-zinc-600 bg-home bg-cover bg-center">
     <div class="w-full h-full flex flex-col justify-center items-center">
@@ -73,7 +78,7 @@
             carne blend bovino de 200gr, molho cheddar vigor, 
             2 fatias de queijo cheddar, anéis de cebola, picles apimentado, 
             maionese artesanal, e uma deliciosa geleia de pimenta.
-          <div class="flex items-center gap-2 justify-between mt-">
+          <div class="flex items-center gap-2 justify-between mt-3">
             <p class="font-bold text-lg">R$ 36.00</p>
             <button 
             class="bg-red-500 hover:bg-green-600 px-5 py-2 rounded add-to-cart-btn"
@@ -84,7 +89,6 @@
           </div>
         </div>
         </div>
-
       </div>
       <!-- FIM PRODUTO ITEM -->
 
@@ -96,7 +100,7 @@
     class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
     />
     <div>
-        <p class="font-bold">Grande Pai Burguer</p>
+        <p class="font-semibold">Grande Pai Burguer</p>
         <p class="text-sm">Pão brioche selado na chapa, um suculento blend de 150gr, 
             cebola caramelizada, queijo cheddar derretido, 
             bacon, maionese artesanal e barbecue artesanal.
@@ -296,18 +300,18 @@
     <div class="bg-white rounded-lg p-2 shadow-md">
     <div class="flex gap-4">
         <img src="./assets/bebidas/Ma.png" 
-        alt="Suco Marácuja 300ml" 
+        alt="Suco Maracujá 300ml" 
         class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"/>
         <div>
-            <p class="font-bold">Suco Marácuja 300ml</p>
+            <p class="font-bold">Suco Maracujá 300ml</p>
             <p class="text-sm">Extremamente gelado!.
             </p>
             <div class="flex items-center gap-2 justify-between mt-3">
                 <p class="font-semibold">R$ 12</p>
                 <button 
-                class="bg-red-500 hover:bg-green-600 px-5 py-2 rounded add-to-cart-btn"
-                data-name="Suco Marácuja 300ml"
-                data-price="12">
+                 class="bg-red-500 hover:bg-green-600 px-5 py-2 rounded add-to-cart-btn"
+                 data-name="Suco Maracujá"
+                 data-price="12">
                     <i class="fa fa-shopping-bag text-lg text-white"></i>
                 </button>
                 </div>

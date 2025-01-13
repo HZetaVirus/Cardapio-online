@@ -19,6 +19,15 @@ const trocoContainer = document.getElementById("troco-container");
 const valorTrocoInput = document.getElementById("valor-troco");
 const chaveCriptoContainer = document.getElementById("chave-cripto-container");
 const chaveCriptoInput = document.getElementById("chave-cripto");
+const splash = document.querySelector('.splash');
+
+// Função de splashScreen
+document.addEventListener('DOMContentLoaded', (e)=>{
+	setTimeout(()=>{
+		splash.classList.add('display-none');
+	}, 10000);
+
+})
 
 let cart = [];
 
@@ -191,7 +200,7 @@ checkoutBtn.addEventListener("click", function(){
 function checkRestaurantOpen(){
   const data = new Date();
   const hora = data.getHours();
-  return hora >= 17 && hora < 22; 
+  return hora >= 10 && hora < 22; 
 }
 
 
