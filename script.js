@@ -7,6 +7,7 @@ const checkoutBtn = document.getElementById("checkout-btn")
 const closeModalBtn = document.getElementById("close-modal-btn")
 const cartCounter = document.getElementById("cart-count")
 const addressInput = document.getElementById("address")
+const nameInput = document.getElementById("name") // Novo input para o nome do cliente
 const addressWarn = document.getElementById("address-warn")
 
 
@@ -31,7 +32,6 @@ closeModalBtn.addEventListener("click", function(){
 
 
 menu.addEventListener("click", function(event){
-  // console.log(event.target)
   let parentButton = event.target.closest(".add-to-cart-btn")
 
   if(parentButton){
@@ -48,21 +48,17 @@ function addToCart(name, price){
   const existingItem = cart.find(item => item.name === name)
 
   if(existingItem){
-   //Se o item já existe, aumenta apenas a quantidade + 1 
    existingItem.quantity += 1;
 
   }else{
-
     cart.push({
       name,
       price,
       quantity: 1,
     })
-
   }
 
   updateCartModal()
-
 }
 
 
@@ -82,19 +78,13 @@ function updateCartModal(){
           <p>Qtd: ${item.quantity}</p>
           <p class="font-medium mt-2">R$ ${item.price.toFixed(2)}</p>
         </div>
-
-
         <button class="remove-from-cart-btn bg-red-500 text-white px-4 py-1 rounded" data-name="${item.name}">
           Remover
         </button>
-
       </div>
     `
-
     total += item.price * item.quantity;
-
     cartItemsContainer.appendChild(cartItemElement)
-
   })
 
   cartTotal.textContent = total.toLocaleString("pt-BR", {
@@ -103,7 +93,6 @@ function updateCartModal(){
   });
 
   cartCounter.innerHTML = cart.length;
-
 }
 
 
@@ -111,10 +100,8 @@ function updateCartModal(){
 cartItemsContainer.addEventListener("click", function (event){
   if(event.target.classList.contains("remove-from-cart-btn")){
     const name = event.target.getAttribute("data-name")
-
     removeItemCart(name);
   }
-
 })
 
 function removeItemCart(name){
@@ -122,7 +109,6 @@ function removeItemCart(name){
 
   if(index !== -1){
     const item = cart[index];
-    
     if(item.quantity > 1){
       item.quantity -= 1;
       updateCartModal();
@@ -131,9 +117,7 @@ function removeItemCart(name){
 
     cart.splice(index, 1);
     updateCartModal();
-
   }
-
 }
 
 
@@ -144,8 +128,6 @@ addressInput.addEventListener("input", function(event){
     addressInput.classList.remove("border-red-500")
     addressWarn.classList.add("hidden")
   }
-
-
 })
 
 
@@ -154,19 +136,17 @@ checkoutBtn.addEventListener("click", function(){
 
   const isOpen = checkRestaurantOpen();
   if(!isOpen){
-
     Toastify({
       text: "Ops o restaurante está fechado!",
       duration: 3000,
       close: true,
-      gravity: "top", // `top` or `bottom`
-      position: "right", // `left`, `center` or `right`
-      stopOnFocus: true, // Prevents dismissing of toast on hover
+      gravity: "top",
+      position: "right",
+      stopOnFocus: true,
       style: {
         background: "#ef4444",
       },
     }).showToast();
-
     return;
   }
 
@@ -176,18 +156,21 @@ checkoutBtn.addEventListener("click", function(){
     addressInput.classList.add("border-red-500")
     return;
   }
+  if(nameInput.value === ""){
+    alert("Por favor, insira o seu nome!");
+    return;
+  }
 
-  //Enviar o pedido para api whats
   const cartItems = cart.map((item) => {
     return (
       ` ${item.name} Quantidade: (${item.quantity}) Preço: R$${item.price} |`
     )
   }).join("")
 
-  const message = encodeURIComponent(cartItems)
-  const phone = "5521991378249"
+  const message = encodeURIComponent(`Pedido de ${nameInput.value}:\n${cartItems}\nEndereço: ${addressInput.value}`)
+  const phone = "5521994601961"
 
-  window.open(`https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}`, "_blank")
+  window.open(`https://wa.me/${phone}?text=${message}`, "_blank")
 
   cart = [];
   updateCartModal();
@@ -199,8 +182,7 @@ checkoutBtn.addEventListener("click", function(){
 function checkRestaurantOpen(){
   const data = new Date();
   const hora = data.getHours();
-  return hora >= 18 && hora < 22; 
-  //true = restaurante está aberto 
+  return hora >= 17 && hora < 22; 
 }
 
 

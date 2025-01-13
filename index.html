@@ -22,7 +22,9 @@
     <meta property="og:description" content="Os mais saborosos hamburgeres do bairro!" />
     <meta property="og:site_name" content="Pais e filhos lanches" /> 
 
-  <link rel="stylesheet" href="./styles/output.css" />  
+    <link rel="stylesheet" href="./styles/output.css" />  
+
+    <link rel="icon" type="image/x-icon" href="assets/logo/logo.svg" />
 
     <title>Pais e filhos lanches</title>
     </head>
@@ -34,14 +36,14 @@
         alt="Logo Pais e Filhos Lanches" 
         class="w-32 h-32 rounded-full shadow-lg hover:scale-110 duration-200"
         />
-        <h1 class="text-white text-3xl mt-4 mb-2 font-bold">
+        <h1 class="text-white text-3xl mt-4 mb-2 font-bold" fav-ico>
             Pais e Filhos Lanches
         </h1>
 
         <span class="text-white font-medium">Rua: Abaúna 147, Barro Vermelho - RJ</span>
 
         <div class="bg-green-800 hover:bg-green-500 px-4 py-1 rounded-lg mt-6" id="date-span">
-            <span class="text-white font-medium">Ter á Sab - 18:00 às 22:00</span>
+            <span class="text-white font-medium">Ter á Sab - 17:00 às 22:00</span>
         </div>
     </div>
     </header>
@@ -385,6 +387,14 @@
       <div id="cart-items" class="flex justify-between mb-2 flex-col max-h-[400px] overflow-auto"></div>
 
       <p class="font-bold">Total: <span id="cart-total">0.00</span></p>
+
+      <p class="font-bold mt-4">Seu Nome:</p>
+      <input 
+      id="name" 
+      type="text" 
+      placeholder="Digite seu nome" 
+      class="w-full border-2 p-1 rounded my-1"
+      />
 
       <p class="font-bold mt-4">Endereço de entrega:</p>
       <input 
