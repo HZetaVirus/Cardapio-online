@@ -1,15 +1,24 @@
-const menu = document.getElementById("menu")
-const cartBtn = document.getElementById("cart-btn")
-const cartModal = document.getElementById("cart-modal")
-const cartItemsContainer = document.getElementById("cart-items")
-const cartTotal = document.getElementById("cart-total")
-const checkoutBtn = document.getElementById("checkout-btn")
-const closeModalBtn = document.getElementById("close-modal-btn")
-const cartCounter = document.getElementById("cart-count")
-const addressInput = document.getElementById("address")
-const nameInput = document.getElementById("name") // Novo input para o nome do cliente
-const addressWarn = document.getElementById("address-warn")
-
+const menu = document.getElementById("menu");
+const cartBtn = document.getElementById("cart-btn");
+const cartModal = document.getElementById("cart-modal");
+const cartItemsContainer = document.getElementById("cart-items");
+const cartTotal = document.getElementById("cart-total");
+const checkoutBtn = document.getElementById("checkout-btn");
+const closeModalBtn = document.getElementById("close-modal-btn");
+const cartCounter = document.getElementById("cart-count");
+const addressInput = document.getElementById("address");
+const nameInput = document.getElementById("name");
+const addressWarn = document.getElementById("address-warn");
+const bairroSelect = document.getElementById("bairro");
+const taxaEntrega = document.getElementById("taxa-entrega");
+const subtotal = document.getElementById("subtotal");
+const formaPagamento = document.getElementById("forma-pagamento");
+const chavePixContainer = document.getElementById("chave-pix-container");
+const chavePixInput = document.getElementById("chave-pix");
+const trocoContainer = document.getElementById("troco-container");
+const valorTrocoInput = document.getElementById("valor-troco");
+const chaveCriptoContainer = document.getElementById("chave-cripto-container");
+const chaveCriptoInput = document.getElementById("chave-cripto");
 
 let cart = [];
 
@@ -182,7 +191,7 @@ checkoutBtn.addEventListener("click", function(){
 function checkRestaurantOpen(){
   const data = new Date();
   const hora = data.getHours();
-  return hora >= 17 && hora < 22; 
+  return hora >= 10 && hora < 22; 
 }
 
 
