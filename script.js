@@ -16,10 +16,14 @@ const formaPagamento = document.getElementById("forma-pagamento");
 const chavePixContainer = document.getElementById("chave-pix-container");
 const chavePixInput = document.getElementById("chave-pix");
 const trocoContainer = document.getElementById("troco-container");
+const trocoSimBtn = document.getElementById("troco-sim");
+const trocoNaoBtn = document.getElementById("troco-nao");
+const valorTrocoContainer = document.getElementById("valor-troco-container");
 const valorTrocoInput = document.getElementById("valor-troco");
 const chaveCriptoContainer = document.getElementById("chave-cripto-container");
 const chaveCriptoInput = document.getElementById("chave-cripto");
 const splash = document.querySelector('.splash');
+const referenceInput = document.getElementById("reference");
 
 // Função de splashScreen
 document.addEventListener('DOMContentLoaded', (e)=>{
@@ -30,6 +34,18 @@ document.addEventListener('DOMContentLoaded', (e)=>{
 })
 
 let cart = [];
+
+// Função para gerenciar o número do pedido
+function getNextOrderNumber() {
+  let lastOrderNumber = localStorage.getItem('lastOrderNumber');
+  if (!lastOrderNumber) {
+    lastOrderNumber = 1000; // Começa do 1000
+  } else {
+    lastOrderNumber = parseInt(lastOrderNumber) + 1;
+  }
+  localStorage.setItem('lastOrderNumber', lastOrderNumber);
+  return lastOrderNumber;
+}
 
 // Abrir o modal do carrinho
 cartBtn.addEventListener("click", function() { 
@@ -105,6 +121,13 @@ function updateCartModal(){
     cartItemsContainer.appendChild(cartItemElement)
   })
 
+  // Adiciona a taxa de entrega se um bairro estiver selecionado
+  const bairroSelecionado = bairroSelect.options[bairroSelect.selectedIndex];
+  if (bairroSelecionado && bairroSelecionado.value !== "") {
+    const taxaEntrega = parseFloat(bairroSelecionado.getAttribute("data-taxa"));
+    total += taxaEntrega;
+  }
+
   cartTotal.textContent = total.toLocaleString("pt-BR", {
     style: "currency",
     currency: "BRL"
@@ -149,9 +172,34 @@ addressInput.addEventListener("input", function(event){
 })
 
 
+// Gerenciar exibição do container de troco
+formaPagamento.addEventListener("change", function() {
+  if (this.value === "dinheiro") {
+    trocoContainer.classList.remove("hidden");
+  } else {
+    trocoContainer.classList.add("hidden");
+    valorTrocoContainer.classList.add("hidden");
+    valorTrocoInput.value = "";
+  }
+});
+
+// Botões de troco
+trocoSimBtn.addEventListener("click", function() {
+  valorTrocoContainer.classList.remove("hidden");
+  trocoSimBtn.classList.add("bg-green-700");
+  trocoNaoBtn.classList.remove("bg-red-700");
+});
+
+trocoNaoBtn.addEventListener("click", function() {
+  valorTrocoContainer.classList.add("hidden");
+  valorTrocoInput.value = "";
+  trocoNaoBtn.classList.add("bg-red-700");
+  trocoSimBtn.classList.remove("bg-green-700");
+});
+
+
 // Finalizar pedido
 checkoutBtn.addEventListener("click", function(){
-
   const isOpen = checkRestaurantOpen();
   if(!isOpen){
     Toastify({
@@ -170,8 +218,8 @@ checkoutBtn.addEventListener("click", function(){
 
   if(cart.length === 0) return;
   if(addressInput.value === ""){
-    addressWarn.classList.remove("hidden")
-    addressInput.classList.add("border-red-500")
+    addressWarn.classList.remove("hidden");
+    addressInput.classList.add("border-red-500");
     return;
   }
   if(nameInput.value === ""){
@@ -179,20 +227,57 @@ checkoutBtn.addEventListener("click", function(){
     return;
   }
 
-  const cartItems = cart.map((item) => {
-    return (
-      ` ${item.name} Quantidade: (${item.quantity}) Preço: R$${item.price} |`
-    )
-  }).join("")
+  const orderNumber = getNextOrderNumber();
+  const bairroSelecionado = bairroSelect.options[bairroSelect.selectedIndex];
+  const taxaEntrega = bairroSelecionado ? parseFloat(bairroSelecionado.getAttribute("data-taxa")) : 0;
+  
+  let total = 0;
+  let itemsMessage = "";
+  
+  cart.forEach(item => {
+    const itemTotal = item.price * item.quantity;
+    total += itemTotal;
+    itemsMessage += `${item.name} (${item.quantity}x) - R$ ${itemTotal.toFixed(2)}\n`;
+  });
+  
+  total += taxaEntrega;
 
-  const message = encodeURIComponent(`Pedido de ${nameInput.value}:\n${cartItems}\nEndereço: ${addressInput.value}`)
-  const phone = "5521994601961"
+  let message = `*Nº do Pedido:* ${orderNumber}\n`;
+  message += "------------------------------------------\n\n";
+  message += `*Nome:* ${nameInput.value}\n\n`;
+  message += "*Itens:*\n\n";
+  cart.forEach(item => {
+    message += `${item.name}\n`;
+    message += `(${item.quantity}x) - R$ ${(item.price * item.quantity).toFixed(2)}\n\n`;
+  });
+  
+  if(taxaEntrega > 0) {
+    message += `Taxa de Entrega:\nR$ ${taxaEntrega.toFixed(2)}\n\n`;
+  }
+  message += "------------------------------------------\n\n";
+  message += `*Endereço:*\n${addressInput.value}\n\n`;
+  if(referenceInput.value) {
+    message += `*Referência:*\n${referenceInput.value}\n\n`;
+  }
+  if(bairroSelecionado && bairroSelecionado.value) {
+    message += `*Bairro:*\n${bairroSelecionado.value}\n\n`;
+  }
+  message += `*Forma de Pagamento:*\n${formaPagamento.options[formaPagamento.selectedIndex].text}\n\n`;
+  
+  if(formaPagamento.value === "dinheiro" && valorTrocoInput.value) {
+    message += `*Troco para:*\nR$ ${parseFloat(valorTrocoInput.value).toFixed(2)}\n\n`;
+  }
+  
+  message += "------------------------------------------\n\n";
+  message += `*Total:*\nR$ ${total.toFixed(2)}\n\n`;
+  message += "------------------------------------------";
 
-  window.open(`https://wa.me/${phone}?text=${message}`, "_blank")
+  const whatsappLink = `https://wa.me/5521994601961?text=${encodeURIComponent(message)}`;
+  window.open(whatsappLink, '_blank');
 
   cart = [];
   updateCartModal();
-
+  cartModal.style.display = "none";
 })
 
 
@@ -214,3 +299,6 @@ if(isOpen){
   spanItem.classList.remove("bg-green-600")
   spanItem.classList.add("bg-red-500")
 }
+
+// Adiciona event listener para o select de bairros
+bairroSelect.addEventListener("change", updateCartModal);
