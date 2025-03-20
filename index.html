@@ -465,29 +465,24 @@
       </select>
   
       <!-- Container do Troco -->
-       <div id="troco" class="hidden">
-                <p class="font-bold mt-4 mb-2">Precisa de troco?</p>
-                <div class="flex gap-2 mb-2">
-                  <button id="troco-sim" class="bg-green-600 hover:bg-green-700 transition text-white px-4 py-1 rounded">Sim</button>
-                  <button id="troco-nao" class="bg-red-500 hover:bg-red-600 transition text-white px-4 py-1 rounded">Não</button>
-                </div>
-                <div id="valor" class="hidden">
-                  <p class="font-bold mt-2">Troco para quanto?</p>
-                  <input type="number" id="valor-troco" placeholder="Digite o valor do troco" class="w-full border-2 p-1 rounded my-1" />
-                </div>
-            </div>
-
-            <div class="flex items-center justify-between mt-5 w-full">
-                <button id="close-modal-btn" class="bg-red-500 hover:bg-red-600 transition text-white px-4 py-1 rounded">
-                    Fechar
-                </button>
-                <button id="checkout-btn" class="bg-green-600 hover:bg-green-700 transition text-white px-4 py-1 rounded">
-                    Finalizar pedido
-                </button>
-            </div>
+       <div id="troco-container" class="hidden">
+        <p class="font-bold mt-4">Precisa de troco?</p>
+        <div class="flex gap-2 mb-2">
+          <button id="troco-sim" class="bg-green-500 text-white px-4 py-1 rounded">Sim</button>
+          <button id="troco-nao" class="bg-red-500 text-white px-4 py-1 rounded">Não</button>
         </div>
-    </div>
-
+        <div id="valor-troco-container" class="hidden">
+          <p class="font-bold mt-2">Troco para quanto?</p>
+          <input type="number" id="valor-troco" placeholder="Digite o valor" class="w-full border-2 p-1 rounded my-1" />
+        </div>
+      </div>
+  
+    <div class="flex items-center justify-between mt-5 w-full">
+    <button id="close-modal-btn" class="bg-red-500 text-white hover:bg-red-700 px-4 py-1 rounded">Fechar</button>
+    <button id="checkout-btn" class="bg-green-500 hover:bg-green-700 text-white px-4 py-1 rounded">Finalizar pedido</button>
+  </div>
+</div>
+</div>
       
 <!-- FIM MODAL CART -->
 
