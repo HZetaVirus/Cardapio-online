@@ -408,12 +408,8 @@
     <div class="bg-black/60 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden overflow-y-auto py-4" id="cart-modal">
     <div class="bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px] mx-auto my-auto">
       <h2 class="text-center font-bold text-2xl mb-2">Minha Sacola</h2>
-      <div id="cart-items" class="flex justify-between mb-2 flex-col max-h-[400px] overflow-y-auto">
-        
-      </div>
-      <p class="font-bold">Total: 
-      <span id="cart-total">R$ 0,00</span>
-      </p>
+      <div id="cart-items" class="flex justify-between mb-2 flex-col max-h-[400px] overflow-y-auto"></div>
+      <p class="font-bold">Total:<span id="cart-total">R$ 0,00</span></p>
   
       <p class="font-bold mt-4">Nome completo:</p>
       <input id="name" type="text" placeholder="Digite seu nome completo..." class="w-full border-2 p-1 rounded my-1" />
@@ -426,10 +422,7 @@
       <p class="text-red-500 justify-center hidden" id="address-warn">
       <b>Endereço Completo, Por favor!</b>
       </p>
-      <p class="text-red-500 justify-center hidden" id="no-item">
-      <b></b>
-      </p>
-     
+      
       <!-- Campo de Referência -->
       <p class="font-bold mt-4">Ponto de Referência:</p>
       <input type="text" placeholder="Ex: Próximo à padaria, casa azul..." id="reference" class="w-full border-2 p-1 rounded my-1" />
