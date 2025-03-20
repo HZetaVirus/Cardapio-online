@@ -405,34 +405,43 @@
 <!-- FIM MENU -->
 
   <!-- MODAL CART -->
-    <div class="bg-black/60 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden overflow-y-auto py-4" id="cart-modal">
-    <div class="bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px] mx-auto my-auto">
-      <h2 class="text-center font-bold text-2xl mb-2">Minha Sacola</h2>
-      <div id="cart-items" class="flex justify-between mb-2 flex-col max-h-[400px] overflow-y-auto"></div>
-      <p class="font-bold">Total:<span id="cart-total">R$ 0,00</span></p>
-  
-      <p class="font-bold mt-4">Nome completo:</p>
-      <input id="name" type="text" placeholder="Digite seu nome completo..." class="w-full border-2 p-1 rounded my-1" />
-      
-      <p class="font-bold mt-4">Endereço de entrega:</p>
-      <input type="text" placeholder="Digite seu endereço completo..." id="address" class="w-full border-2 p-1 rounded my-1" />
-      <p class="text-red-500 hidden" id="address-warn">Digite seu endereço completo!</p>
+    <div class="bg-black/50 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden overflow-y-auto animated fadeIn"
+        id="cart-modal">
+        <div class="bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px]">
+            <h2 class="text-center font-bold text-2xl mb-2">Minha Sacola</h2>
+      <!-- cart-items está no js -->
+            <div id="cart-items" class="flex justify-between mb-2 flex-col">
 
-      <div class="flex flex-col w-[30%]">
-      <p class="font-bold mt-4">Número:</p>
-      <input type="number" placeholder="Digite o número..." id="number" class="w-full border-2 p-1 rounded my-1"/>
-      </div>
+            </div>
+            <p class="font-bold">
+                 Total:
+                <span id="cart-total">0.00</span>
+            </p>
 
-      <p class="font-bold mt-4">Complemento:</p>
-      <input type="text" placeholder="Ex: Casa branca e portão preto..." id="completo" class="w-full border-2 p-1 rounded my-1" />
-      <p class="text-red-500 justify-center hidden" id="address-warn">
-      <b>Endereço Completo, Por favor!</b>
-      </p>
-      
-      <!-- Campo de Referência -->
-      <p class="font-bold mt-4">Ponto de Referência:</p>
-      <input type="text" placeholder="Ex: Próximo à padaria, casa azul..." id="reference" class="w-full border-2 p-1 rounded my-1" />
+            <p class="font-bold mt-4">Nome completo:</p>
+            <input id="name" type="text" placeholder="Digite seu nome completo..." class="w-full border-2 p-1 rounded my-1" />
 
+            <div class="w-full flex justify-between gap-2">
+                <div class="flex flex-col w-full">
+                    <p class="font-bold mt-4">Endereço de Entrega:</p>
+                    <input type="text" placeholder="Digite seu endereço completo..." id="address" class="w-full border-2 p-1 rounded my-1"
+                    />
+                </div>
+                <div class="flex flex-col w-[30%]">
+                    <p class="font-bold mt-4">Número:</p>
+                    <input type="number" placeholder="Digite o número..." id="number" class="w-full border-2 p-1 rounded my-1"
+                    />
+                </div>
+            </div>
+            <p class="font-bold mt-4">Complemento:</p>
+            <input type="text" placeholder="Ex: Casa branca e portão preto..." id="completo" class="w-full border-2 p-1 rounded my-1" />
+            <p class="text-red-500 justify-center hidden" id="address-warn">
+                <b>Endereço Completo, Por favor!</b>
+            </p>
+            <p class="text-red-500 justify-center hidden" id="no-item">
+                <b></b>
+            </p>
+          
       <!-- Seleção de Bairro -->
       <p class="font-bold mt-4">Entrega por bairro:</p>
       <select id="bairro" class="w-full border-2 p-1 rounded my-1">
@@ -453,28 +462,32 @@
         <option value="maquina">Cartão de débito</option>
         <option value="dinheiro">Dinheiro</option>
         <option value="pix">PIX</option>
-        <option value="cripto">Criptomoeda</option>
       </select>
   
       <!-- Container do Troco -->
-      <div id="troco-container" class="hidden">
-        <p class="font-bold mt-4">Precisa de troco?</p>
-        <div class="flex gap-2 mb-2">
-          <button id="troco-sim" class="bg-green-500 text-white px-4 py-1 rounded">Sim</button>
-          <button id="troco-nao" class="bg-red-500 text-white px-4 py-1 rounded">Não</button>
+       <div id="troco" class="hidden">
+                <p class="font-bold mt-4 mb-2">Precisa de troco?</p>
+                <div class="flex gap-2 mb-2">
+                  <button id="troco-sim" class="bg-green-600 hover:bg-green-700 transition text-white px-4 py-1 rounded">Sim</button>
+                  <button id="troco-nao" class="bg-red-500 hover:bg-red-600 transition text-white px-4 py-1 rounded">Não</button>
+                </div>
+                <div id="valor" class="hidden">
+                  <p class="font-bold mt-2">Troco para quanto?</p>
+                  <input type="number" id="valor-troco" placeholder="Digite o valor do troco" class="w-full border-2 p-1 rounded my-1" />
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between mt-5 w-full">
+                <button id="close-modal-btn" class="bg-red-500 hover:bg-red-600 transition text-white px-4 py-1 rounded">
+                    Fechar
+                </button>
+                <button id="checkout-btn" class="bg-green-600 hover:bg-green-700 transition text-white px-4 py-1 rounded">
+                    Finalizar pedido
+                </button>
+            </div>
         </div>
-        <div id="valor-troco-container" class="hidden">
-          <p class="font-bold mt-2">Troco para quanto?</p>
-          <input type="number" id="valor-troco" placeholder="Digite o valor" class="w-full border-2 p-1 rounded my-1" />
-        </div>
-      </div>
-  
-    <div class="flex items-center justify-between mt-5 w-full">
-    <button id="close-modal-btn" class="bg-red-500 text-white hover:bg-red-700 px-4 py-1 rounded">Fechar</button>
-    <button id="checkout-btn" class="bg-green-500 hover:bg-green-700 text-white px-4 py-1 rounded">Finalizar pedido</button>
-  </div>
-</div>
-</div>
+    </div>
+
       
 <!-- FIM MODAL CART -->
 
