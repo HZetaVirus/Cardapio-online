@@ -408,9 +408,36 @@
     <div class="bg-black/60 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden overflow-y-auto py-4" id="cart-modal">
     <div class="bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px] mx-auto my-auto">
       <h2 class="text-center font-bold text-2xl mb-2">Minha Sacola</h2>
-      <div id="cart-items" class="flex justify-between mb-2 flex-col max-h-[400px] overflow-y-auto"></div>
-      <p class="font-bold">Total: <span id="cart-total">R$ 0,00</span></p>
+      <div id="cart-items" class="flex justify-between mb-2 flex-col max-h-[400px] overflow-y-auto">
+        
+      </div>
+      <p class="font-bold">Total: 
+      <span id="cart-total">R$ 0,00</span>
+      </p>
   
+      <p class="font-bold mt-4">Nome completo:</p>
+      <input id="name" type="text" placeholder="Digite seu nome completo..." class="w-full border-2 p-1 rounded my-1" />
+      <p class="font-bold mt-4">Endereço de entrega:</p>
+      <input type="text" placeholder="Digite seu endereço completo..." id="address" class="w-full border-2 p-1 rounded my-1" />
+      </div>
+      <div class="flex flex-col w-[30%]">
+      <p class="font-bold mt-4">Número:</p>
+      <input type="number" placeholder="Digite o número..." id="number" class="w-full border-2 p-1 rounded my-1"/>
+      </div>
+      </div>
+      <p class="font-bold mt-4">Complemento:</p>
+      <input type="text" placeholder="Ex: Casa branca e portão preto..." id="completo" class="w-full border-2 p-1 rounded my-1" />
+      <p class="text-red-500 justify-center hidden" id="address-warn">
+      <b>Endereço Completo, Por favor!</b>
+      </p>
+      <p class="text-red-500 justify-center hidden" id="no-item">
+      <b></b>
+      </p>
+     
+      <!-- Campo de Referência -->
+      <p class="font-bold mt-4">Ponto de Referência:</p>
+      <input type="text" placeholder="Ex: Próximo à padaria, casa azul..." id="reference" class="w-full border-2 p-1 rounded my-1" />
+
       <!-- Seleção de Bairro -->
       <p class="font-bold mt-4">Entrega por bairro:</p>
       <select id="bairro" class="w-full border-2 p-1 rounded my-1">
@@ -422,26 +449,15 @@
         <option value="Roncalli/são Vicente" data-taxa="6.00">Roncalli/são Vicente - R$ 6,00</option>
         <!-- Adicione mais opções conforme necessário -->
       </select>
-  
-      <p class="font-bold mt-4">Seu Nome:</p>
-      <input id="name" type="text" placeholder="Digite seu nome" class="w-full border-2 p-1 rounded my-1" />
-  
-     
-      <p class="font-bold mt-4">Endereço de entrega:</p>
-      <input type="text" placeholder="Digite seu endereço completo..." id="address" class="w-full border-2 p-1 rounded my-1" />
-      <p class="text-red-500 hidden" id="address-warn">Digite seu endereço completo!</p>
-      
-      <!-- Campo de Referência -->
-      <p class="font-bold mt-4">Ponto de Referência:</p>
-      <input type="text" placeholder="Ex: Próximo à padaria, casa azul..." id="reference" class="w-full border-2 p-1 rounded my-1" />
       
       <!-- Formas de Pagamento -->
       <p class="font-bold mt-4">Forma de pagamento:</p>
       <select id="forma-pagamento" class="w-full border-2 p-1 rounded my-1">
-        <option value="">Selecione...</option>
+        <option value="">Selecione a forma de pagamento</option>
+        <option value="maquina">Cartão de crédito</option>
+        <option value="maquina">Cartão de débito</option>
         <option value="dinheiro">Dinheiro</option>
         <option value="pix">PIX</option>
-        <option value="maquina">Máquina de Cartão</option>
         <option value="cripto">Criptomoeda</option>
       </select>
   
@@ -464,6 +480,7 @@
   </div>
 </div>
 </div>
+      
 <!-- FIM MODAL CART -->
 
 <!-- BUTTON CART FOOTER -->
